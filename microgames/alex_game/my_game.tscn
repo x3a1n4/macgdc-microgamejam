@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bogr7mjanaes8"]
+[gd_scene load_steps=4 format=3 uid="uid://bogr7mjanaes8"]
 
 [ext_resource type="Script" path="res://my_game.gd" id="1_xno1j"]
 [ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/main/bomb_timer/bomb_timer.tscn" id="2_1t4na"]
+[ext_resource type="PackedScene" uid="uid://bf8e3i4wxoxjr" path="res://microgames/alex_game/player.tscn" id="3_p7mkf"]
 
 [node name="MyGame" type="Node2D" node_paths=PackedStringArray("bomb_timer")]
 script = ExtResource("1_xno1j")
@@ -12,3 +13,6 @@ bomb_timer = NodePath("BombTimer")
 
 [node name="BombTimer" parent="." instance=ExtResource("2_1t4na")]
 position = Vector2(57, 356)
+
+[node name="Player" parent="." instance=ExtResource("3_p7mkf")]
+position = Vector2(344, 189)
