@@ -3,8 +3,12 @@
 [ext_resource type="Script" path="res://my_game.gd" id="1_xno1j"]
 [ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/main/bomb_timer/bomb_timer.tscn" id="2_1t4na"]
 
-[node name="MyGame" type="Node2D"]
+[node name="MyGame" type="Node2D" node_paths=PackedStringArray("bomb_timer")]
 script = ExtResource("1_xno1j")
+game_length = 6
+message = "Configure in \"Microgame Settings\"!"
+control_type = 1
+bomb_timer = NodePath("BombTimer")
 
 [node name="BombTimer" parent="." instance=ExtResource("2_1t4na")]
 position = Vector2(57, 356)
