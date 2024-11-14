@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://bogr7mjanaes8"]
+[gd_scene load_steps=11 format=4 uid="uid://bogr7mjanaes8"]
 
 [ext_resource type="Script" path="res://my_game.gd" id="1_xno1j"]
 [ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/main/bomb_timer/bomb_timer.tscn" id="2_1t4na"]
 [ext_resource type="Texture2D" uid="uid://bsai24rudtrj1" path="res://microgames/alex_game/sprites/Tiny Swords/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" id="2_5tinf"]
 [ext_resource type="PackedScene" uid="uid://cyr55qu1qeb6q" path="res://microgames/alex_game/moneybag.tscn" id="2_vnp8m"]
+[ext_resource type="PackedScene" uid="uid://cuqivenufjquj" path="res://microgames/knight_game/explosion/explosion.tscn" id="3_lnh0h"]
 [ext_resource type="PackedScene" uid="uid://bf8e3i4wxoxjr" path="res://microgames/alex_game/player.tscn" id="3_p7mkf"]
 [ext_resource type="PackedScene" uid="uid://bjvdd67qhnpy1" path="res://microgames/alex_game/goblin.tscn" id="6_lqp8l"]
 
@@ -55,6 +56,7 @@ size = Vector2(652, 23)
 [node name="MyGame" type="Node2D" node_paths=PackedStringArray("player", "goblin", "bomb_timer")]
 script = ExtResource("1_xno1j")
 moneybag_scene = ExtResource("2_vnp8m")
+explosion = ExtResource("3_lnh0h")
 player = NodePath("Player")
 goblin = NodePath("Goblin")
 game_length = 6
