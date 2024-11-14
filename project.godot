@@ -33,6 +33,12 @@ version_control/autoload_on_startup=true
 
 import/blender/enabled=false
 
+[global_group]
+
+mygame_goblin="Goblin group"
+mygame_moneybags=""
+mygame_player=""
+
 [input]
 
 keyboard_up={

@@ -52,9 +52,11 @@ sources/0 = SubResource("TileSetAtlasSource_h21mf")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gp3q"]
 size = Vector2(652, 23)
 
-[node name="MyGame" type="Node2D" node_paths=PackedStringArray("bomb_timer")]
+[node name="MyGame" type="Node2D" node_paths=PackedStringArray("player", "goblin", "bomb_timer")]
 script = ExtResource("1_xno1j")
 moneybag_scene = ExtResource("2_vnp8m")
+player = NodePath("Player")
+goblin = NodePath("Goblin")
 game_length = 6
 message = "Configure in \"Microgame Settings\"!"
 control_type = 1
@@ -95,3 +97,6 @@ shape = SubResource("RectangleShape2D_8gp3q")
 [node name="Goblin" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_lqp8l")]
 position = Vector2(572, 72)
 player = NodePath("../Player")
+speed = 150
+
+[connection signal="killed_player" from="Goblin" to="." method="_on_goblin_killed_player"]

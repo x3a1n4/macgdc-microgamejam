@@ -115,7 +115,7 @@ height = 52.0
 radius = 24.0
 height = 62.0
 
-[node name="Goblin" type="CharacterBody2D"]
+[node name="Goblin" type="CharacterBody2D" groups=["mygame_goblin"]]
 script = ExtResource("1_ootjr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -126,7 +126,9 @@ autoplay = "run"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_iocdp")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." groups=["mygame_goblin"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_2ohrt")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
