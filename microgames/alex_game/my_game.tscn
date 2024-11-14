@@ -1,31 +1,76 @@
-[gd_scene load_steps=6 format=3 uid="uid://bogr7mjanaes8"]
+[gd_scene load_steps=10 format=4 uid="uid://bogr7mjanaes8"]
 
 [ext_resource type="Script" path="res://my_game.gd" id="1_xno1j"]
 [ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/main/bomb_timer/bomb_timer.tscn" id="2_1t4na"]
 [ext_resource type="Texture2D" uid="uid://bsai24rudtrj1" path="res://microgames/alex_game/sprites/Tiny Swords/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" id="2_5tinf"]
+[ext_resource type="PackedScene" uid="uid://cyr55qu1qeb6q" path="res://microgames/alex_game/moneybag.tscn" id="2_vnp8m"]
 [ext_resource type="PackedScene" uid="uid://bf8e3i4wxoxjr" path="res://microgames/alex_game/player.tscn" id="3_p7mkf"]
+[ext_resource type="PackedScene" uid="uid://bjvdd67qhnpy1" path="res://microgames/alex_game/goblin.tscn" id="6_lqp8l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h21mf"]
+texture = ExtResource("2_5tinf")
+texture_region_size = Vector2i(64, 64)
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+3:2/0 = 0
+2:2/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+8:2/0 = 0
+7:2/0 = 0
+6:2/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+8:0/0 = 0
+7:0/0 = 0
+6:0/0 = 0
+4:0/0 = 0
+9:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qt5fc"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_h21mf")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gp3q"]
 size = Vector2(652, 23)
 
 [node name="MyGame" type="Node2D" node_paths=PackedStringArray("bomb_timer")]
 script = ExtResource("1_xno1j")
+moneybag_scene = ExtResource("2_vnp8m")
 game_length = 6
 message = "Configure in \"Microgame Settings\"!"
 control_type = 1
 bomb_timer = NodePath("BombTimer")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(1150, 286)
-scale = Vector2(3.6377, 3.6377)
-texture = ExtResource("2_5tinf")
-metadata/_edit_lock_ = true
+[node name="BackgroundTiles" type="TileMapLayer" parent="."]
+position = Vector2(43, -488)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAD//wMAAAAAAAAAAAD//wQAAAAAAAEAAAD//wUAAAAAAAEAAAD//wYAAAAAAAIAAAAAAAYAAAABAAIAAAABAAYAAAABAAIAAAACAAYAAAABAAIAAAADAAYAAAABAAIAAAAEAAYAAAABAAIAAAAFAAYAAAABAAIAAAAGAAYAAAACAAIAAAAGAAUAAAACAAEAAAAGAAQAAAACAAAAAAAFAAUAAAABAAEAAAAEAAUAAAABAAEAAAADAAUAAAABAAEAAAACAAUAAAABAAEAAAABAAUAAAABAAEAAAAAAAUAAAABAAEAAAAAAAQAAAABAAEAAAABAAQAAAABAAEAAAACAAQAAAABAAEAAAADAAQAAAABAAEAAAAAAAMAAAABAAAAAAABAAMAAAABAAAAAAACAAMAAAABAAAAAAADAAMAAAABAAAAAAAEAAMAAAACAAAAAAAEAAQAAAABAAEAAAAFAAQAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_qt5fc")
 
 [node name="BombTimer" parent="." instance=ExtResource("2_1t4na")]
 position = Vector2(57, 356)
 
 [node name="Player" parent="." instance=ExtResource("3_p7mkf")]
-position = Vector2(344, 189)
+position = Vector2(50, 93)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -37,12 +82,16 @@ shape = SubResource("RectangleShape2D_8gp3q")
 position = Vector2(324, 362)
 shape = SubResource("RectangleShape2D_8gp3q")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-6, 194)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8gp3q")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(642, 191)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_8gp3q")
+
+[node name="Goblin" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_lqp8l")]
+position = Vector2(572, 72)
+player = NodePath("../Player")
