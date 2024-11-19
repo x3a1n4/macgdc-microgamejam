@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bkgpv33koivgd"
+path="res://.godot/imported/Stairs_Modular_Middle.obj-6c2b87a759f44b99e6c9c360359bbf90.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Stairs_Modular_Middle.obj-6c2b87a759f44b99e6c9c360359bbf90.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Level and Mechanics/OBJ/Stairs_Modular_Middle.obj"
+dest_files=["res://.godot/imported/Stairs_Modular_Middle.obj-6c2b87a759f44b99e6c9c360359bbf90.mesh", "res://.godot/imported/Stairs_Modular_Middle.obj-6c2b87a759f44b99e6c9c360359bbf90.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

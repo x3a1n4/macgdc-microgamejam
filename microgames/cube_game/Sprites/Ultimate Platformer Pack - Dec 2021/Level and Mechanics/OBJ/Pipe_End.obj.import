@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://q1cmcheopllr"
+path="res://.godot/imported/Pipe_End.obj-03ead4530583c60c13d9a5fd21a617ed.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pipe_End.obj-03ead4530583c60c13d9a5fd21a617ed.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Level and Mechanics/OBJ/Pipe_End.obj"
+dest_files=["res://.godot/imported/Pipe_End.obj-03ead4530583c60c13d9a5fd21a617ed.mesh", "res://.godot/imported/Pipe_End.obj-03ead4530583c60c13d9a5fd21a617ed.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://br4b826juymth"
+path="res://.godot/imported/Numbers_7.obj-44d955058c69c83449572ec366d018ef.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Numbers_7.obj-44d955058c69c83449572ec366d018ef.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Level and Mechanics/OBJ/Numbers_7.obj"
+dest_files=["res://.godot/imported/Numbers_7.obj-44d955058c69c83449572ec366d018ef.mesh", "res://.godot/imported/Numbers_7.obj-44d955058c69c83449572ec366d018ef.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

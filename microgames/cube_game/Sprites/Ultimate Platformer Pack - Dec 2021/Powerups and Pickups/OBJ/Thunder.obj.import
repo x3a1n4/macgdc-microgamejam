@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dlcebcy4ctp55"
+path="res://.godot/imported/Thunder.obj-873d5f9277bd3505eb8ce4bd0ea13e12.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Thunder.obj-873d5f9277bd3505eb8ce4bd0ea13e12.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Powerups and Pickups/OBJ/Thunder.obj"
+dest_files=["res://.godot/imported/Thunder.obj-873d5f9277bd3505eb8ce4bd0ea13e12.mesh", "res://.godot/imported/Thunder.obj-873d5f9277bd3505eb8ce4bd0ea13e12.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

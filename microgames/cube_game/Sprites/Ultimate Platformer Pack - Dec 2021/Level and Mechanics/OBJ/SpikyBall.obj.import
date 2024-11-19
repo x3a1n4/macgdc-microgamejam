@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bx4ucrnsse5xw"
+path="res://.godot/imported/SpikyBall.obj-5eb61de9ab8937ff686d83a8c289ea47.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SpikyBall.obj-5eb61de9ab8937ff686d83a8c289ea47.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Level and Mechanics/OBJ/SpikyBall.obj"
+dest_files=["res://.godot/imported/SpikyBall.obj-5eb61de9ab8937ff686d83a8c289ea47.mesh", "res://.godot/imported/SpikyBall.obj-5eb61de9ab8937ff686d83a8c289ea47.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

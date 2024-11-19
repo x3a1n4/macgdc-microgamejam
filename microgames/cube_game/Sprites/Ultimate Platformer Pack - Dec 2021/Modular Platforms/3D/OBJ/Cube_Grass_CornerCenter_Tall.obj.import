@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c8b30k8fsdqxu"
+path="res://.godot/imported/Cube_Grass_CornerCenter_Tall.obj-55ac7cf188cbb239237e2b8cb63b7550.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Cube_Grass_CornerCenter_Tall.obj-55ac7cf188cbb239237e2b8cb63b7550.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Modular Platforms/3D/OBJ/Cube_Grass_CornerCenter_Tall.obj"
+dest_files=["res://.godot/imported/Cube_Grass_CornerCenter_Tall.obj-55ac7cf188cbb239237e2b8cb63b7550.mesh", "res://.godot/imported/Cube_Grass_CornerCenter_Tall.obj-55ac7cf188cbb239237e2b8cb63b7550.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

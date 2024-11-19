@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7xn55in7bjky"
+path="res://.godot/imported/Fruit.obj-06e3bc83efeb2d214af67d714d4bc32f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Fruit.obj-06e3bc83efeb2d214af67d714d4bc32f.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Nature/OBJ/Fruit.obj"
+dest_files=["res://.godot/imported/Fruit.obj-06e3bc83efeb2d214af67d714d4bc32f.mesh", "res://.godot/imported/Fruit.obj-06e3bc83efeb2d214af67d714d4bc32f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

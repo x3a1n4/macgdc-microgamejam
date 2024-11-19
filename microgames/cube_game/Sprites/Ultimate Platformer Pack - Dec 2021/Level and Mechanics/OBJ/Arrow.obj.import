@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bco7oelovyo41"
+path="res://.godot/imported/Arrow.obj-638be5fc076175f3582c4dde91cfe30b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Arrow.obj-638be5fc076175f3582c4dde91cfe30b.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Level and Mechanics/OBJ/Arrow.obj"
+dest_files=["res://.godot/imported/Arrow.obj-638be5fc076175f3582c4dde91cfe30b.mesh", "res://.godot/imported/Arrow.obj-638be5fc076175f3582c4dde91cfe30b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

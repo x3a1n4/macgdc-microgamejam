@@ -10,6 +10,7 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q8qb6"]
 
 [sub_resource type="Environment" id="Environment_mpx0v"]
+ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bxyys"]
 
@@ -27,16 +28,24 @@ texture = SubResource("ViewportTexture_q8nsp")
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(640, 360)
 
+[node name="Sun" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(0.173648, -0.852869, 0.492404, 0, 0.5, 0.866025, -0.984808, -0.150384, 0.0868241, 0, 0, 0)
+shadow_enabled = true
+
 [node name="GridMap" type="GridMap" parent="SubViewport"]
 mesh_library = ExtResource("2_oh7rb")
 physics_material = SubResource("PhysicsMaterial_q8qb6")
 cell_size = Vector3(1, 1, 1)
 data = {
-"cells": PackedInt32Array(0, 65535, 1, 0, 0, 1)
+"cells": PackedInt32Array(2, 2, 0, 0, 0, 1)
 }
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 5, 5)
+transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 10, 10, 10)
+projection = 1
+fov = 14.5
+size = 8.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
 environment = SubResource("Environment_mpx0v")

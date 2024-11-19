@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d2elb173pj6bw"
+path="res://.godot/imported/Heart_Outline.obj-cedf6139a1ad5ecfdb8acdb9691ddcf3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Heart_Outline.obj-cedf6139a1ad5ecfdb8acdb9691ddcf3.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Powerups and Pickups/OBJ/Heart_Outline.obj"
+dest_files=["res://.godot/imported/Heart_Outline.obj-cedf6139a1ad5ecfdb8acdb9691ddcf3.mesh", "res://.godot/imported/Heart_Outline.obj-cedf6139a1ad5ecfdb8acdb9691ddcf3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cgihx0ann132i"
+path="res://.godot/imported/RockPlatform_Tall.obj-b0ed6ca661a7cb39b3ad9f1e47d9cc2d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/RockPlatform_Tall.obj-b0ed6ca661a7cb39b3ad9f1e47d9cc2d.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Nature/OBJ/RockPlatform_Tall.obj"
+dest_files=["res://.godot/imported/RockPlatform_Tall.obj-b0ed6ca661a7cb39b3ad9f1e47d9cc2d.mesh", "res://.godot/imported/RockPlatform_Tall.obj-b0ed6ca661a7cb39b3ad9f1e47d9cc2d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

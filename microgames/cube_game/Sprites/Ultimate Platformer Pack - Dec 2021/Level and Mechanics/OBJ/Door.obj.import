@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://5skyll86oatp"
+path="res://.godot/imported/Door.obj-4e5fa1447168de26b54af359e7fa7bd9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Door.obj-4e5fa1447168de26b54af359e7fa7bd9.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Level and Mechanics/OBJ/Door.obj"
+dest_files=["res://.godot/imported/Door.obj-4e5fa1447168de26b54af359e7fa7bd9.mesh", "res://.godot/imported/Door.obj-4e5fa1447168de26b54af359e7fa7bd9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b3f7w5b8knk08"
+path="res://.godot/imported/Cube_Bricks.obj-c70a412632273ae8636039f03e9f12d7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Cube_Bricks.obj-c70a412632273ae8636039f03e9f12d7.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Cubes/OBJ/Cube_Bricks.obj"
+dest_files=["res://.godot/imported/Cube_Bricks.obj-c70a412632273ae8636039f03e9f12d7.mesh", "res://.godot/imported/Cube_Bricks.obj-c70a412632273ae8636039f03e9f12d7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

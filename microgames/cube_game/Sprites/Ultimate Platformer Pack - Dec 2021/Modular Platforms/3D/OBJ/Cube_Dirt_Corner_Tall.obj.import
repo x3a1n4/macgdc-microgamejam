@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cqm33aqj46eta"
+path="res://.godot/imported/Cube_Dirt_Corner_Tall.obj-b82479def573568ceae3ebc0e19e88de.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Cube_Dirt_Corner_Tall.obj-b82479def573568ceae3ebc0e19e88de.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Modular Platforms/3D/OBJ/Cube_Dirt_Corner_Tall.obj"
+dest_files=["res://.godot/imported/Cube_Dirt_Corner_Tall.obj-b82479def573568ceae3ebc0e19e88de.mesh", "res://.godot/imported/Cube_Dirt_Corner_Tall.obj-b82479def573568ceae3ebc0e19e88de.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

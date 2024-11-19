@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5gjeg44gb708"]
+
+[ext_resource type="PackedScene" uid="uid://dogfvat2v3d3q" path="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Level and Mechanics/glTF/Goal_Flag.gltf" id="1_4w0aq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kbeoi"]
+
+[node name="Flag" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_kbeoi")
+
+[node name="Goal_Flag2" parent="." instance=ExtResource("1_4w0aq")]

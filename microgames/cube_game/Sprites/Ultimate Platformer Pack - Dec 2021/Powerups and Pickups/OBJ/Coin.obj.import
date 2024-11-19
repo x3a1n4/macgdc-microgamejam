@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cavcr23f2nhnb"
+path="res://.godot/imported/Coin.obj-d95e45dc65c2b7bd253f2ef0aa3ade5b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Coin.obj-d95e45dc65c2b7bd253f2ef0aa3ade5b.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Powerups and Pickups/OBJ/Coin.obj"
+dest_files=["res://.godot/imported/Coin.obj-d95e45dc65c2b7bd253f2ef0aa3ade5b.mesh", "res://.godot/imported/Coin.obj-d95e45dc65c2b7bd253f2ef0aa3ade5b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

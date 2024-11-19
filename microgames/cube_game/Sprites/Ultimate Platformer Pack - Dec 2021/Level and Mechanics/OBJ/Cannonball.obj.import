@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ba21hmmh85uhy"
+path="res://.godot/imported/Cannonball.obj-bf61d1701c99913ed853d81b60bcf196.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Cannonball.obj-bf61d1701c99913ed853d81b60bcf196.mesh"]
+
+source_file="res://microgames/cube_game/Sprites/Ultimate Platformer Pack - Dec 2021/Level and Mechanics/OBJ/Cannonball.obj"
+dest_files=["res://.godot/imported/Cannonball.obj-bf61d1701c99913ed853d81b60bcf196.mesh", "res://.godot/imported/Cannonball.obj-bf61d1701c99913ed853d81b60bcf196.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
