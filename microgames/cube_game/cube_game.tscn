@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://ehbh4l3r16tq"]
+
+[ext_resource type="Script" path="res://microgames/cube_game/cube_game.gd" id="1_ktkqc"]
+[ext_resource type="MeshLibrary" uid="uid://bygmumxaij2ee" path="res://microgames/cube_game/cubemeshlibrary.tres" id="2_oh7rb"]
+[ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/main/bomb_timer/bomb_timer.tscn" id="3_r7030"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_q8nsp"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q8qb6"]
+
+[sub_resource type="Environment" id="Environment_mpx0v"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bxyys"]
+
+[node name="Cube_Game" type="Node2D" node_paths=PackedStringArray("bomb_timer")]
+script = ExtResource("1_ktkqc")
+game_length = 8
+message = "Get to the flag"
+control_type = 1
+bomb_timer = NodePath("")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = SubResource("ViewportTexture_q8nsp")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(640, 360)
+
+[node name="GridMap" type="GridMap" parent="SubViewport"]
+mesh_library = ExtResource("2_oh7rb")
+physics_material = SubResource("PhysicsMaterial_q8qb6")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 65535, 1, 0, 0, 1)
+}
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 5, 5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
+environment = SubResource("Environment_mpx0v")
+camera_attributes = SubResource("CameraAttributesPractical_bxyys")
+
+[node name="BombTimer" parent="." instance=ExtResource("3_r7030")]
+position = Vector2(59, 357)
