@@ -7,7 +7,8 @@
 [node name="Flag" type="Area3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.5, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.199565, 0)
 shape = SubResource("BoxShape3D_kbeoi")
 
 [node name="Goal_Flag2" parent="." instance=ExtResource("1_4w0aq")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)

@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ehbh4l3r16tq"]
+[gd_scene load_steps=10 format=3 uid="uid://ehbh4l3r16tq"]
 
 [ext_resource type="Script" path="res://microgames/cube_game/cube_game.gd" id="1_ktkqc"]
 [ext_resource type="PackedScene" uid="uid://8l064sx0co1l" path="res://microgames/cube_game/buddy.tscn" id="2_iu6al"]
 [ext_resource type="MeshLibrary" uid="uid://bygmumxaij2ee" path="res://microgames/cube_game/cubemeshlibrary.tres" id="2_oh7rb"]
-[ext_resource type="PackedScene" uid="uid://cuqivenufjquj" path="res://microgames/knight_game/explosion/explosion.tscn" id="2_t7au7"]
 [ext_resource type="PackedScene" uid="uid://c5gjeg44gb708" path="res://microgames/cube_game/flag.tscn" id="3_2l1qv"]
 [ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/main/bomb_timer/bomb_timer.tscn" id="3_r7030"]
 
@@ -20,7 +19,6 @@ ambient_light_color = Color(1, 1, 1, 1)
 [node name="Cube_Game" type="Node2D"]
 script = ExtResource("1_ktkqc")
 num_cubes = 30
-explosion = ExtResource("2_t7au7")
 game_length = 8
 message = "Get to the flag"
 control_type = 1
@@ -32,8 +30,7 @@ texture = SubResource("ViewportTexture_q8nsp")
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(640, 360)
 
-[node name="Buddy" parent="SubViewport" node_paths=PackedStringArray("grid") groups=["buddy"] instance=ExtResource("2_iu6al")]
-grid = NodePath("../GridMap")
+[node name="Buddy" parent="SubViewport" instance=ExtResource("2_iu6al")]
 
 [node name="Sun" type="DirectionalLight3D" parent="SubViewport"]
 transform = Transform3D(0.173648, -0.852869, 0.492404, 0, 0.5, 0.866025, -0.984808, -0.150384, 0.0868241, 0, 0, 0)
@@ -69,6 +66,4 @@ camera_attributes = SubResource("CameraAttributesPractical_bxyys")
 position = Vector2(59, 357)
 
 [connection signal="worldrotate" from="SubViewport/Buddy" to="." method="_on_buddy_worldrotate"]
-[connection signal="body_entered" from="SubViewport/GridMap/Flag" to="." method="_on_flag_body_entered"]
 [connection signal="timeout" from="SubViewport/GridMap/RotationTimer" to="." method="_on_rotation_timer_timeout"]
-[connection signal="timeout" from="SubViewport/GridMap/RotationTimer" to="SubViewport/Buddy" method="_on_rotation_timer_timeout"]
