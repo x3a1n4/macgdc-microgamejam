@@ -26,6 +26,7 @@ sky_material = SubResource("PanoramaSkyMaterial_swsbx")
 [sub_resource type="Environment" id="Environment_mpx0v"]
 background_mode = 2
 sky = SubResource("Sky_r25xf")
+sky_rotation = Vector3(1.25664, 0.811578, 4.28129)
 ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bxyys"]

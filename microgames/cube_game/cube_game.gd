@@ -114,13 +114,13 @@ func _on_buddy_worldrotate(in_rotation: Vector2i, is_rotating_down: bool) -> voi
 	in_rotation = Vector2(in_rotation).rotated(PI/2)
 	print(in_rotation)
 	
+	# finish current rotation
+	start_pos = $SubViewport/GridMap.position
+	process_rotate(1)
+	
 	axis = Vector3(in_rotation.x, 0, in_rotation.y)
 	prev_rotation = 0 # hacky
-	start_pos = $SubViewport/GridMap.position
 	rotating_down = is_rotating_down
-	
-	# finish current rotation
-	process_rotate(0)
 	
 	# play sound
 	if is_rotating_down:

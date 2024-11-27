@@ -4955,5 +4955,9 @@ transform = Transform3D(-1, -6.18166e-08, -6.18166e-08, 0, 0.7071, -0.7071, 8.74
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_swwxt")
 
+[node name="InputDelayTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="JumpPath/JumpTimer" to="." method="_on_jump_timer_timeout"]

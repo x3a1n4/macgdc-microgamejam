@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	input_dir = Input.get_vector("keyboard_left", "keyboard_right", "keyboard_up", "keyboard_down")
 	
 	# see if we can jump
-	var jump : bool = input_dir != Vector2.ZERO and input_dir != last_input_dir and $FloorCast.is_colliding()
+	var jump : bool = input_dir != Vector2.ZERO and input_dir != last_input_dir and $FloorCast.is_colliding() and $InputDelayTimer.is_stopped()
 	# TODO: handle buffering
 	if jump:
 		var direction : Vector2i = input_dir.normalized().rotated(PI).snapped(Vector2.ONE) # snap to UP, DOWN, LEFT, RIGHT
@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		elif not $ForewardsCast/DownwardsCast.is_colliding():
 			print("rotate down")
 			worldrotate.emit(-direction, true)
-			
+			$InputDelayTimer.start()
 		# else, just jump in that direction
 		else:
 			$JumpPath/JumpTimer.start()
@@ -79,7 +79,7 @@ func _on_rotation_timer_timeout() -> void:
 
 func snap_to_grid():
 	var grid_pos = grid.local_to_map(grid.to_local(position))
-	position = grid.to_global(grid.map_to_local(grid_pos))
+	position = grid.to_global(grid.map_to_local(grid_pos)) + Vector3.DOWN * 0.5
 
 # pseudo animation tree
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
