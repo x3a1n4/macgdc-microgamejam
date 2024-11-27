@@ -49,6 +49,17 @@ func _ready() -> void:
 	
 	var flag_spawn = get_flag_spawn($SubViewport/GridMap.get_used_cells_by_item(ITEMNUM))
 	$SubViewport/GridMap/Flag.position = $SubViewport/GridMap.map_to_local(flag_spawn) + Vector3.UP * $SubViewport/GridMap.cell_size.z / 2
+	
+	# set random skybox for flavour
+	var sky_path = [
+		'res://microgames/cube_game/Sprites/Skyboxes/BlueSkySkybox.png',
+		'res://microgames/cube_game/Sprites/Skyboxes/PurplyBlueSky.png',
+		'res://microgames/cube_game/Sprites/Skyboxes/SkySkybox.png'
+	].pick_random()
+	var sky_image = Image.new()
+	sky_image.load(sky_path)
+	var sky_texture = ImageTexture.new().create_from_image(sky_image)
+	$SubViewport/WorldEnvironment.environment.sky.sky_material.set_panorama(sky_texture)
 
 func get_flag_spawn(cells : Array[Vector3i]) -> Vector3i:
 	var output = cells.reduce(func(max, vec): return vec if -vec.x+(float(vec.y)/10)-vec.z > -max.x+(float(max.y)/10)-max.z else max)
@@ -73,6 +84,11 @@ func _process(delta: float) -> void:
 		# update camera
 		var current_looking : Vector3 = $SubViewport/Camera3D.project_position(Vector2(640/2, 360/2), $SubViewport/Camera3D.position.distance_to($SubViewport/Buddy.position))
 		$SubViewport/Camera3D.look_at(lerp(current_looking, $SubViewport/Buddy.position, 0.5)) 
+	else:
+		var scale = $SubViewport/GridMap/WinTimer.time_left / $SubViewport/GridMap/WinTimer.wait_time
+		print(scale)
+		$SubViewport/GridMap.cell_scale = scale
+		$SubViewport/GridMap/Flag.scale = Vector3(scale, scale, scale)
 		
 func process_rotate(progress):
 	var transform_vec : Vector3 = start_pos - $SubViewport/Buddy.position
@@ -116,7 +132,8 @@ func _on_flag_body_entered(body: Node3D) -> void:
 		create_explosion_at(body)
 		body.queue_free() # delete buddy
 		
-		# do win animation of some kind, TODO
+		# do win animation of some kind, shrink all boxes
+		$SubViewport/GridMap/WinTimer.start()
 
 func create_explosion_at(thing : Node3D):
 	var inst = explosion.instantiate() as Sprite2D

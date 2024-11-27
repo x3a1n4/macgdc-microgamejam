@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://ehbh4l3r16tq"]
+
+[ext_resource type="Script" path="res://microgames/cube_game/cube_game.gd" id="1_ktkqc"]
+[ext_resource type="PackedScene" uid="uid://8l064sx0co1l" path="res://microgames/cube_game/buddy.tscn" id="2_iu6al"]
+[ext_resource type="MeshLibrary" uid="uid://bygmumxaij2ee" path="res://microgames/cube_game/cubemeshlibrary.tres" id="2_oh7rb"]
+[ext_resource type="PackedScene" uid="uid://cuqivenufjquj" path="res://microgames/knight_game/explosion/explosion.tscn" id="2_t7au7"]
+[ext_resource type="PackedScene" uid="uid://c5gjeg44gb708" path="res://microgames/cube_game/flag.tscn" id="3_2l1qv"]
+[ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/main/bomb_timer/bomb_timer.tscn" id="3_r7030"]
+[ext_resource type="Texture2D" uid="uid://dr08ej4cc0f16" path="res://microgames/cube_game/Sprites/Skyboxes/BlueSkySkybox.png" id="6_s6yke"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_q8nsp"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q8qb6"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_swsbx"]
+panorama = ExtResource("6_s6yke")
+
+[sub_resource type="Sky" id="Sky_r25xf"]
+resource_local_to_scene = true
+sky_material = SubResource("PanoramaSkyMaterial_swsbx")
+
+[sub_resource type="Environment" id="Environment_mpx0v"]
+background_mode = 2
+sky = SubResource("Sky_r25xf")
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bxyys"]
+
+[node name="Cube_Game" type="Node2D"]
+script = ExtResource("1_ktkqc")
+num_cubes = 30
+explosion = ExtResource("2_t7au7")
+game_name = null
+creator_name = null
+game_description = null
+game_length = 8
+lose_on_timeout = null
+message = "Get to the flag"
+control_type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = SubResource("ViewportTexture_q8nsp")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(640, 360)
+
+[node name="Buddy" parent="SubViewport" node_paths=PackedStringArray("grid") groups=["buddy"] instance=ExtResource("2_iu6al")]
+grid = NodePath("../GridMap")
+
+[node name="Sun" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(0.173648, -0.852869, 0.492404, 0, 0.5, 0.866025, -0.984808, -0.150384, 0.0868241, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="SubViewport"]
+rotation_order = 0
+mesh_library = ExtResource("2_oh7rb")
+physics_material = SubResource("PhysicsMaterial_q8qb6")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(2, 2, 0, 0, 0, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Flag" parent="SubViewport/GridMap" instance=ExtResource("3_2l1qv")]
+
+[node name="RotationTimer" type="Timer" parent="SubViewport/GridMap"]
+wait_time = 0.3
+one_shot = true
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(0.894935, -0.297405, 0.33263, 0, 0.745476, 0.666532, -0.446198, -0.596503, 0.667152, 500, 1000, 1000)
+projection = 1
+fov = 1.0
+size = 8.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
+environment = SubResource("Environment_mpx0v")
+camera_attributes = SubResource("CameraAttributesPractical_bxyys")
+
+[node name="BombTimer" parent="." instance=ExtResource("3_r7030")]
+position = Vector2(59, 357)
+
+[connection signal="worldrotate" from="SubViewport/Buddy" to="." method="_on_buddy_worldrotate"]
+[connection signal="body_entered" from="SubViewport/GridMap/Flag" to="." method="_on_flag_body_entered"]
+[connection signal="timeout" from="SubViewport/GridMap/RotationTimer" to="." method="_on_rotation_timer_timeout"]
+[connection signal="timeout" from="SubViewport/GridMap/RotationTimer" to="SubViewport/Buddy" method="_on_rotation_timer_timeout"]

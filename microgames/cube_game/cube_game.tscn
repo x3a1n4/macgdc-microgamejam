@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ehbh4l3r16tq"]
+[gd_scene load_steps=14 format=3 uid="uid://ehbh4l3r16tq"]
 
 [ext_resource type="Script" path="res://microgames/cube_game/cube_game.gd" id="1_ktkqc"]
 [ext_resource type="PackedScene" uid="uid://8l064sx0co1l" path="res://microgames/cube_game/buddy.tscn" id="2_iu6al"]
@@ -6,13 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://cuqivenufjquj" path="res://microgames/knight_game/explosion/explosion.tscn" id="2_t7au7"]
 [ext_resource type="PackedScene" uid="uid://c5gjeg44gb708" path="res://microgames/cube_game/flag.tscn" id="3_2l1qv"]
 [ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/main/bomb_timer/bomb_timer.tscn" id="3_r7030"]
+[ext_resource type="Texture2D" uid="uid://dr08ej4cc0f16" path="res://microgames/cube_game/Sprites/Skyboxes/BlueSkySkybox.png" id="6_s6yke"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_q8nsp"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q8qb6"]
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_swsbx"]
+panorama = ExtResource("6_s6yke")
+
+[sub_resource type="Sky" id="Sky_r25xf"]
+resource_local_to_scene = true
+sky_material = SubResource("PanoramaSkyMaterial_swsbx")
+
 [sub_resource type="Environment" id="Environment_mpx0v"]
+background_mode = 2
+sky = SubResource("Sky_r25xf")
 ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bxyys"]
@@ -53,6 +63,9 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="RotationTimer" type="Timer" parent="SubViewport/GridMap"]
 wait_time = 0.3
+one_shot = true
+
+[node name="WinTimer" type="Timer" parent="SubViewport/GridMap"]
 one_shot = true
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
