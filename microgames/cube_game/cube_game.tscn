@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://microgames/cube_game/cube_game.gd" id="1_ktkqc"]
 [ext_resource type="PackedScene" uid="uid://8l064sx0co1l" path="res://microgames/cube_game/buddy.tscn" id="2_iu6al"]
 [ext_resource type="MeshLibrary" uid="uid://bygmumxaij2ee" path="res://microgames/cube_game/cubemeshlibrary.tres" id="2_oh7rb"]
-[ext_resource type="PackedScene" uid="uid://cuqivenufjquj" path="res://microgames/knight_game/explosion/explosion.tscn" id="2_t7au7"]
+[ext_resource type="PackedScene" uid="uid://cuqivenufjquj" path="res://microgames/cube_game/explosion/explosion.tscn" id="2_s2yqr"]
 [ext_resource type="PackedScene" uid="uid://c5gjeg44gb708" path="res://microgames/cube_game/flag.tscn" id="3_2l1qv"]
 [ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/main/bomb_timer/bomb_timer.tscn" id="3_r7030"]
 [ext_resource type="Texture2D" uid="uid://dr08ej4cc0f16" path="res://microgames/cube_game/Sprites/Skyboxes/BlueSkySkybox.png" id="6_s6yke"]
@@ -33,7 +33,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="Cube_Game" type="Node2D" node_paths=PackedStringArray("bomb_timer")]
 script = ExtResource("1_ktkqc")
-explosion = ExtResource("2_t7au7")
+explosion = ExtResource("2_s2yqr")
 game_name = "Get to the flag!"
 creator_name = "Alex"
 game_description = "Can you get to the flag as gravity rotates?

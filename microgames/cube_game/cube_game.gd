@@ -90,7 +90,7 @@ func _process(delta: float) -> void:
 		
 		# update camera
 		var current_looking : Vector3 = $SubViewport/Camera3D.project_position(Vector2(640/2, 360/2), $SubViewport/Camera3D.position.distance_to($SubViewport/Buddy.position))
-		$SubViewport/Camera3D.look_at(lerp(current_looking, $SubViewport/Buddy.position, 0.5)) 
+		$SubViewport/Camera3D.look_at(lerp(current_looking, $SubViewport/Buddy.position, 0.1)) 
 	else:
 		var scale = $SubViewport/GridMap/WinTimer.time_left / $SubViewport/GridMap/WinTimer.wait_time + 0.001 # avoid spamming errors
 		$SubViewport/GridMap.cell_scale = scale
