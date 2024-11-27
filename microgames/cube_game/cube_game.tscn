@@ -56,9 +56,9 @@ wait_time = 0.3
 one_shot = true
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(0.913546, -0.287606, 0.287606, 0, 0.707107, 0.707107, -0.406737, -0.645974, 0.645974, 5, 10, 10)
+transform = Transform3D(0.894935, -0.297405, 0.33263, 0, 0.745476, 0.666532, -0.446198, -0.596503, 0.667152, 500, 1000, 1000)
 projection = 1
-fov = 14.5
+fov = 1.0
 size = 8.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]

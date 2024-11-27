@@ -51,11 +51,11 @@ func _ready() -> void:
 	$SubViewport/GridMap/Flag.position = $SubViewport/GridMap.map_to_local(flag_spawn) + Vector3.UP * $SubViewport/GridMap.cell_size.z / 2
 
 func get_flag_spawn(cells : Array[Vector3i]) -> Vector3i:
-	var output = cells.reduce(func(max, vec): return vec if -vec.x+vec.y/10-vec.z > -max.x+max.y/10-max.z else max)
+	var output = cells.reduce(func(max, vec): return vec if -vec.x+(float(vec.y)/10)-vec.z > -max.x+(float(max.y)/10)-max.z else max)
 	return output
 	
 func get_buddy_spawn(cells : Array[Vector3i]) -> Vector3i:
-	var output = cells.reduce(func(max, vec): return vec if vec.x+vec.y/10+vec.z > max.x+max.y/10+max.z else max)
+	var output = cells.reduce(func(max, vec): return vec if vec.x+float(vec.y)/10+vec.z > max.x+float(max.y)/10+max.z else max)
 	return output
 
 var axis : Vector3 = Vector3.ZERO
@@ -68,21 +68,24 @@ func _process(delta: float) -> void:
 	if get_node("SubViewport/Buddy"):
 		if not $SubViewport/GridMap/RotationTimer.is_stopped():
 			var progress = 1 - $SubViewport/GridMap/RotationTimer.time_left / $SubViewport/GridMap/RotationTimer.wait_time
-			var transform_vec : Vector3 = start_pos - $SubViewport/Buddy.position
-			
-			var cur_rotation = lerpf(0, PI/2, progress)
-			var transform_mod = lerp(Vector3.ZERO, Vector3.DOWN, progress)
-			
-			$SubViewport/GridMap.rotate(axis, cur_rotation - prev_rotation)
-			$SubViewport/GridMap.position = transform_vec.rotated(axis, cur_rotation) + $SubViewport/Buddy.position
-			if rotating_down:
-				$SubViewport/GridMap.position += transform_mod
-			
-			prev_rotation = cur_rotation
+			process_rotate(progress)
 		
 		# update camera
 		var current_looking : Vector3 = $SubViewport/Camera3D.project_position(Vector2(640/2, 360/2), $SubViewport/Camera3D.position.distance_to($SubViewport/Buddy.position))
 		$SubViewport/Camera3D.look_at(lerp(current_looking, $SubViewport/Buddy.position, 0.5)) 
+		
+func process_rotate(progress):
+	var transform_vec : Vector3 = start_pos - $SubViewport/Buddy.position
+			
+	var cur_rotation = lerpf(0, PI/2, progress)
+	var transform_mod = lerp(Vector3.ZERO, Vector3.DOWN, progress)
+	
+	$SubViewport/GridMap.rotate(axis, cur_rotation - prev_rotation)
+	$SubViewport/GridMap.position = transform_vec.rotated(axis, cur_rotation) + $SubViewport/Buddy.position
+	if rotating_down:
+		$SubViewport/GridMap.position += transform_mod
+	
+	prev_rotation = cur_rotation
 		
 func _on_buddy_worldrotate(in_rotation: Vector2i, is_rotating_down: bool) -> void:
 	print("Rotating!")
@@ -93,6 +96,9 @@ func _on_buddy_worldrotate(in_rotation: Vector2i, is_rotating_down: bool) -> voi
 	prev_rotation = 0 # hacky
 	start_pos = $SubViewport/GridMap.position
 	rotating_down = is_rotating_down
+	
+	# finish current rotation
+	process_rotate(0)
 	
 	$SubViewport/GridMap/RotationTimer.start()
 	# disable collision
