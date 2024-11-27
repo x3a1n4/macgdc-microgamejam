@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ehbh4l3r16tq"]
+[gd_scene load_steps=17 format=3 uid="uid://ehbh4l3r16tq"]
 
 [ext_resource type="Script" path="res://microgames/cube_game/cube_game.gd" id="1_ktkqc"]
 [ext_resource type="PackedScene" uid="uid://8l064sx0co1l" path="res://microgames/cube_game/buddy.tscn" id="2_iu6al"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c5gjeg44gb708" path="res://microgames/cube_game/flag.tscn" id="3_2l1qv"]
 [ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/main/bomb_timer/bomb_timer.tscn" id="3_r7030"]
 [ext_resource type="Texture2D" uid="uid://dr08ej4cc0f16" path="res://microgames/cube_game/Sprites/Skyboxes/BlueSkySkybox.png" id="6_s6yke"]
+[ext_resource type="AudioStream" uid="uid://q4r23usexq4b" path="res://microgames/cube_game/Sprites/Sounds/rotate_down.wav" id="8_pbhtw"]
+[ext_resource type="AudioStream" uid="uid://dulykaotugxtf" path="res://microgames/cube_game/Sprites/Sounds/rotate_up.wav" id="9_a2npb"]
+[ext_resource type="AudioStream" uid="uid://bc5sw643bx2mr" path="res://microgames/cube_game/Sprites/Sounds/Sketchbook 2024-10-23.ogg" id="10_fp3ff"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_q8nsp"]
 viewport_path = NodePath("SubViewport")
@@ -83,6 +86,19 @@ camera_attributes = SubResource("CameraAttributesPractical_bxyys")
 
 [node name="BombTimer" parent="." instance=ExtResource("3_r7030")]
 position = Vector2(59, 357)
+
+[node name="RotateDownPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pbhtw")
+volume_db = -10.0
+
+[node name="RotateUpPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_a2npb")
+volume_db = -10.0
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_fp3ff")
+autoplay = true
+parameters/looping = true
 
 [connection signal="worldrotate" from="SubViewport/Buddy" to="." method="_on_buddy_worldrotate"]
 [connection signal="body_entered" from="SubViewport/GridMap/Flag" to="." method="_on_flag_body_entered"]

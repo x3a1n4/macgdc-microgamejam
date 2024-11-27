@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=4 uid="uid://8l064sx0co1l"]
+[gd_scene load_steps=35 format=4 uid="uid://8l064sx0co1l"]
 
 [ext_resource type="Script" path="res://microgames/cube_game/buddy_controller.gd" id="1_2xi4d"]
+[ext_resource type="AudioStream" uid="uid://dl32tv8n5c82x" path="res://microgames/cube_game/Sprites/Sounds/jump.wav" id="2_swwxt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb6ox"]
 size = Vector3(0.782654, 0.290039, 0.676636)
@@ -4950,6 +4951,9 @@ one_shot = true
 
 [node name="PathFollow3D" type="PathFollow3D" parent="JumpPath"]
 transform = Transform3D(-1, -6.18166e-08, -6.18166e-08, 0, 0.7071, -0.7071, 8.74228e-08, -0.7071, -0.7071, 0, 0, 0)
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_swwxt")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="JumpPath/JumpTimer" to="." method="_on_jump_timer_timeout"]

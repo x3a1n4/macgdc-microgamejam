@@ -122,6 +122,12 @@ func _on_buddy_worldrotate(in_rotation: Vector2i, is_rotating_down: bool) -> voi
 	# finish current rotation
 	process_rotate(0)
 	
+	# play sound
+	if is_rotating_down:
+		$RotateDownPlayer.play()
+	else:
+		$RotateUpPlayer.play()
+	
 	$SubViewport/GridMap/RotationTimer.start()
 	# disable collision
 	#$SubViewport/GridMap.set_collision_layer_value(1, false)

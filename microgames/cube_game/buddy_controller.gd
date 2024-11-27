@@ -11,7 +11,6 @@ var jump_start_pos : Vector3
 
 @export var grid : GridMap
 
-var buffer : bool = false
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -33,8 +32,6 @@ func _physics_process(delta: float) -> void:
 	var jump : bool = input_dir != Vector2.ZERO and input_dir != last_input_dir and $FloorCast.is_colliding()
 	# TODO: handle buffering
 	if jump:
-		# reset buffer
-		buffer = false
 		var direction : Vector2i = input_dir.normalized().rotated(PI).snapped(Vector2.ONE) # snap to UP, DOWN, LEFT, RIGHT
 		var direction3 = Vector3(direction.x, 0, direction.y) # I will never remember that y is vertical here
 		
@@ -43,6 +40,7 @@ func _physics_process(delta: float) -> void:
 		
 		# jump
 		$AnimationPlayer.play("Jump")
+		$JumpSound.play()
 		
 		# if ray hit something, face that direction and rotate world
 		$ForewardsCast.force_raycast_update()
