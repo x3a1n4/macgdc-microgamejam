@@ -83,7 +83,7 @@ var rotating_down: bool = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# rotate!
-	if get_node("SubViewport/Buddy"):
+	if get_node_or_null("SubViewport/Buddy"):
 		if not $SubViewport/GridMap/RotationTimer.is_stopped():
 			var progress = 1 - $SubViewport/GridMap/RotationTimer.time_left / $SubViewport/GridMap/RotationTimer.wait_time
 			process_rotate(progress)
@@ -92,7 +92,7 @@ func _process(delta: float) -> void:
 		var current_looking : Vector3 = $SubViewport/Camera3D.project_position(Vector2(640/2, 360/2), $SubViewport/Camera3D.position.distance_to($SubViewport/Buddy.position))
 		$SubViewport/Camera3D.look_at(lerp(current_looking, $SubViewport/Buddy.position, 0.5)) 
 	else:
-		var scale = $SubViewport/GridMap/WinTimer.time_left / $SubViewport/GridMap/WinTimer.wait_time
+		var scale = $SubViewport/GridMap/WinTimer.time_left / $SubViewport/GridMap/WinTimer.wait_time + 0.001 # avoid spamming errors
 		$SubViewport/GridMap.cell_scale = scale
 		$SubViewport/GridMap/Flag.scale = Vector3(scale, scale, scale)
 		
