@@ -1,6 +1,6 @@
 extends Microgame
 
-@export var num_cubes = 10
+@export var cube_mod = 10
 @export var explosion : PackedScene
 
 var directions = [
@@ -15,6 +15,13 @@ const ITEMNUM = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+	
+	# set cube number
+	var num_cubes = cube_mod
+	var round_number = get_parent() as Main
+	if round_number:
+		num_cubes = num_cubes * ceil(float(round_number.score + 1) / 5) # hehehe
+		print(num_cubes)
 	
 	# spawn cubes
 	# note: generation is almost for sure not working
@@ -37,7 +44,7 @@ func _ready() -> void:
 			if cell in used_cells:
 				adjacent_cells.erase(cell)
 			
-			if cell.length() > 7:
+			if cell.length() > 20: # update to 20, go wild :)
 				adjacent_cells.erase(cell) # bit too far, don't add box here
 		
 		var position = adjacent_cells.pick_random()
@@ -86,7 +93,6 @@ func _process(delta: float) -> void:
 		$SubViewport/Camera3D.look_at(lerp(current_looking, $SubViewport/Buddy.position, 0.5)) 
 	else:
 		var scale = $SubViewport/GridMap/WinTimer.time_left / $SubViewport/GridMap/WinTimer.wait_time
-		print(scale)
 		$SubViewport/GridMap.cell_scale = scale
 		$SubViewport/GridMap/Flag.scale = Vector3(scale, scale, scale)
 		

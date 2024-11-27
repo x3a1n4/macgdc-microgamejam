@@ -27,13 +27,16 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bxyys"]
 
-[node name="Cube_Game" type="Node2D"]
+[node name="Cube_Game" type="Node2D" node_paths=PackedStringArray("bomb_timer")]
 script = ExtResource("1_ktkqc")
-num_cubes = 30
 explosion = ExtResource("2_t7au7")
+game_name = "Get to the flag!"
+creator_name = "Alex"
+game_description = "Can you get to the flag as gravity rotates?"
 game_length = 8
-message = "Get to the flag"
+message = "Get to the flag!"
 control_type = 1
+bomb_timer = NodePath("BombTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(320, 180)
