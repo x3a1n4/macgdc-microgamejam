@@ -36,7 +36,8 @@ script = ExtResource("1_ktkqc")
 explosion = ExtResource("2_t7au7")
 game_name = "Get to the flag!"
 creator_name = "Alex"
-game_description = "Can you get to the flag as gravity rotates?"
+game_description = "Can you get to the flag as gravity rotates?
+Note: the number of cubes scales by your game score"
 game_length = 8
 message = "Get to the flag!"
 control_type = 1
