@@ -11,6 +11,8 @@ var jump_start_pos : Vector3
 
 @export var grid : GridMap
 
+var is_buffered : bool
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -29,9 +31,12 @@ func _physics_process(delta: float) -> void:
 	input_dir = Input.get_vector("keyboard_left", "keyboard_right", "keyboard_up", "keyboard_down")
 	
 	# see if we can jump
-	var jump : bool = input_dir != Vector2.ZERO and input_dir != last_input_dir and $FloorCast.is_colliding() and $InputDelayTimer.is_stopped()
+	#var jump : bool = input_dir != Vector2.ZERO and input_dir != last_input_dir and $FloorCast.is_colliding() and $InputDelayTimer.is_stopped()
+	var jump : bool = $FloorCast.is_colliding() and $InputDelayTimer.is_stopped()
+	is_buffered = (input_dir != Vector2.ZERO and input_dir != last_input_dir) or is_buffered
 	# TODO: handle buffering
-	if jump:
+	if jump and is_buffered:
+		is_buffered = false
 		var direction : Vector2i = input_dir.normalized().rotated(PI).snapped(Vector2.ONE) # snap to UP, DOWN, LEFT, RIGHT
 		var direction3 = Vector3(direction.x, 0, direction.y) # I will never remember that y is vertical here
 		
@@ -48,6 +53,7 @@ func _physics_process(delta: float) -> void:
 		if $ForewardsCast.is_colliding():
 			print("rotate up")
 			worldrotate.emit(direction, false)
+			$InputDelayTimer.start()
 		elif not $ForewardsCast/DownwardsCast.is_colliding():
 			print("rotate down")
 			worldrotate.emit(-direction, true)
@@ -56,6 +62,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			$JumpPath/JumpTimer.start()
 			jump_start_pos = position
+			$InputDelayTimer.start()
 		
 		#position = $FloorCast.get_collision_point() + Vector3.UP/2
 		#snap_to_grid()
@@ -73,6 +80,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_jump_timer_timeout() -> void:
 	$JumpPath/PathFollow3D.set_progress_ratio(0) # hack due to https://github.com/godotengine/godot/issues/95612
+	snap_to_grid()
 
 func _on_rotation_timer_timeout() -> void:
 	snap_to_grid()
