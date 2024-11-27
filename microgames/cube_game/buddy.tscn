@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://dl32tv8n5c82x" path="res://microgames/cube_game/Sprites/Sounds/jump.wav" id="2_swwxt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb6ox"]
-size = Vector3(0.782654, 0.290039, 0.676636)
+size = Vector3(0.33371, 0.290039, 0.334412)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkpgj"]
 resource_name = "Main"
